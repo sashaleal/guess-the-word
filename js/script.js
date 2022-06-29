@@ -6,15 +6,15 @@ const wordInProgress = document.querySelector(".word-in-progress");
 const remainingGuessesElement = document.querySelector(".remaining");
 const remainingGuessesSpan = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
-const playAgainButton = document.querySelector(".play-again hide");
+const playAgainButton = document.querySelector(".play-again");
 
 const word = "magnolia";
 const guessedLetters = [];
 
 //Write a Function to Add Placeholders for Each Letter
-const placeholder = function(word){
-    const placeholderLetters=[]; 
-    for(const letter of word){
+const placeholder = function (word) {
+    const placeholderLetters = []; 
+    for (const letter of word) {
         console.log(letter);
         placeholderLetters.push("●");
     }
@@ -32,7 +32,7 @@ guessLetterButton.addEventListener("click", function (e){
     const guess = letterInput.value;
     console.log(guess);
     
-    const goodGuess= validateInput(guess);
+    const goodGuess = validateInput(guess);
     if(goodGuess){
         makeGuess(guess);
     }
@@ -40,19 +40,19 @@ guessLetterButton.addEventListener("click", function (e){
 });
 
 //Create a Function to Check Player’s Input
-const validateInput = function (input){
+const validateInput = function (input) {
     const acceptedLetter = /[a-zA-Z]/;
       // Is the input empty?
-    if(input.lenght === 0){
+    if (input.length === 0) {
         message.innerText = "Please enter a letter";
          // Did you type more than one letter?
-    }else if(input.lenght > 1){
+    } else if (input.length > 1) {
         message.innerText ="Please enter a single letter";
         // Did you type a number, a special character or some other non letter thing?
-    }else if(!input.match(acceptedLetter)){
+    } else if (!input.match(acceptedLetter)) {
         message.innerText = "Please enter a letter from A to Z"
         // We finally got a single letter, omg yay
-    }else{
+    } else {
         return input;
     }
 };
@@ -60,9 +60,9 @@ const validateInput = function (input){
 const makeGuess = function(guess){
     guess = guess.toUpperCase();
     //does it contain that letter?
-    if (guessedLetters.includes(guess)){
+    if (guessedLetters.includes(guess)) {
     message.innerText = "You already got that letter, babe";
-    } else{
+    } else {
         guessedLetters.push(guess);
         console.log(guessedLetters);
     }
