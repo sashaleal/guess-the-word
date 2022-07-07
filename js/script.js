@@ -18,7 +18,8 @@ const words = await response.text();
 const wordArray = words.split("\n");
 //console.log(wordArray)
 const randomIndex =  Math.floor(Math.random() * wordArray.length);
-word= wordArray[randomIndex].trim();
+word = wordArray[randomIndex].trim();
+placeholder(word);
 }
 
 getWord();
